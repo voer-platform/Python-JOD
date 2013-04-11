@@ -18,6 +18,15 @@ if [ $EUID -ne 0 ]
 fi
 # Gets working directory
 DIR="$(pwd)"
+
+#### EDIT HERE IF NECESSARY SEE INSTRUCTIONS BELOW####
+### Set PIPE_PATH to path of 'libjpipe.so' if script throws error "Cannot find libjpipe.so" ###
+PIPE_PATH=/usr/lib/libreoffice/ure-link/lib
+
+#Sets Java library path
+JLIB_PATH="$PIPE_PATH":"$DIR"/lib/hyperic-sigar-1.6.5/sigar-bin/lib
+export JAVA_OPTS="-Djava.library.path="$JLIB_PATH""
+
 #Shuts down JOD
 # Makes sure that there are no other pipes open already 
 echo ""

@@ -20,7 +20,7 @@ fi
 DIR="$(pwd)"
 
 # Tries to set PIPE_PATH to commonly known locations for 'libjpipe.so' by checking if the path exists
-PIPE_PATH1=/usr/lib/libreoffice/basis-link/ure-link/lib
+PIPE_PATH1=/usr/lib/libreoffice/ure-link/lib
 PIPE_PATH2=/usr/lib/openoffice/basis-link/ure-link/lib
 if [ -e "$PIPE_PATH1"/libjpipe.so ];
 	then

@@ -107,10 +107,13 @@ public class OfficeUtils {
     }
 
     public static File getOfficeExecutable(File officeHome) {
+        // replace soffice.bin by soffice
+        // calling soffice.bin with -env:UserInstallation will cause errors with LibreOffice 3.6
+        // https://bugs.freedesktop.org/show_bug.cgi?id=48341
         if (PlatformUtils.isMac()) {
-            return new File(officeHome, "MacOS/soffice.bin");
+            return new File(officeHome, "MacOS/soffice");
         } else {
-            return new File(officeHome, "program/soffice.bin");
+            return new File(officeHome, "program/soffice");
         }
     }
 

@@ -61,7 +61,10 @@ class OfficeProcess {
     }
 
     public void start(boolean restart) throws IOException {
-        ProcessQuery processQuery = new ProcessQuery("soffice.bin", unoUrl.getAcceptString());
+        // replace soffice.bin by soffice                                          
+        // calling soffice.bin with -env:UserInstallation will cause errors with LibreOffice 3.6
+        // https://bugs.freedesktop.org/show_bug.cgi?id=48341
+        ProcessQuery processQuery = new ProcessQuery("soffice", unoUrl.getAcceptString());
         long existingPid = processManager.findPid(processQuery);
     	if (!(existingPid == PID_NOT_FOUND || existingPid == PID_UNKNOWN)) {
 			throw new IllegalStateException(String.format("a process with acceptString '%s' is already running; pid %d",

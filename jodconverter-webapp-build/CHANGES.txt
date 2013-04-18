@@ -1,0 +1,12 @@
+Changelog
+=========
+
+- lib/jodconverter-core/src/main/java/org/artofsolving/jodconverter/office/OfficeProcess.java: line 64-67
+  replace soffice.bin by soffice, calling soffice.bin with -env:UserInstallation will cause errors with LibreOffice 3.6
+  see https://bugs.freedesktop.org/show_bug.cgi?id=48341
+
+- lib/jodconverter-core/src/main/java/org/artofsolving/jodconverter/office/OfficeUtils.java: line 110-116
+  replace soffice.bin by soffice
+
+- startup.sh: line 21-28
+  include PIPE_PATH and sigar path in Java library path

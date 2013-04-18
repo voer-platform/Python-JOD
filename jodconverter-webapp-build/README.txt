@@ -34,3 +34,33 @@ Example: python convert.py ~/foo.doc ~/outputdir/ doc odt
 ########### Startup and Shutdown of JOD ###########
 
 Startup and shutdown scripts are also included in the root directory. Please use them to startup and shutdown JOD after installation.
+
+########### TROUBLESHOOTING ###########
+
+- You may have to install maven to run ./install.sh. This install script uses maven to build jodconverter-webaap.
+  Example to install maven on ubuntu:
+
+    $ sudo apt-get install maven2
+
+- To have JODConverter and maven work, you should have Oracle Sun JDK installed instead of OpenJDK.
+  Example to install Oracle Sun JDK on ubuntu:
+
+    $ sudo apt-get install python-software-properties
+    $ sudo add-apt-repository ppa:webupd8team/java
+    $ sudo apt-get update
+    $ sudo apt-get install oracle-java7-installer
+
+- You may need to run install.sh and startup.sh with sudo -E to include your custom environment variables.
+
+    $ export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+    $ sudo -E ./install.sh
+
+- To re-compile jodconverter core you can run:
+
+    $ cd lib/jodconverter-core/
+    $ mvn -DskipTests -Djava.library.path=/full/path/to/Python-JOD/jodconverter-webapp-build/lib/hyperic-sigar-1.6.5/sigar-bin/lib install
+
+  And copy the compiled package outside.
+
+    $ cp target/jodconverter-core-3.0-SNAPSHOT.jar ../../
+

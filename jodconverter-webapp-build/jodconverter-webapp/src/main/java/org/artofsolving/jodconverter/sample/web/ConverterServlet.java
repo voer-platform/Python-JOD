@@ -51,6 +51,10 @@ public class ConverterServlet extends HttpServlet {
         String inputExtension = FilenameUtils.getExtension(uploadedFile.getName());
 
         String baseName = FilenameUtils.getBaseName(uploadedFile.getName());
+        // FIXME: fix createTempFile error - temp file name must be at least 3 in length
+        if (baseName.length() < 3) {
+            baseName = baseName + "_converted";
+        }
         File inputFile = File.createTempFile(baseName, "." + inputExtension);
         writeUploadedFile(uploadedFile, inputFile);
         File outputFile = File.createTempFile(baseName, "." + outputExtension);

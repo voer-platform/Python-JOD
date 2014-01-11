@@ -64,3 +64,7 @@ Startup and shutdown scripts are also included in the root directory. Please use
 
     $ cp target/jodconverter-core-3.0-SNAPSHOT.jar ../../
 
+- If you still encounter errors when converting files with short filename (< 3 chars length), you should remove cached class file of ConverterServlet.class
+
+    $ rm -f /path/to/Python-JOD/jodconverter-webapp-build/jodconverter-webapp/target/classes/org/artofsolving/jodconverter/sample/web/ConverterServlet.class
+

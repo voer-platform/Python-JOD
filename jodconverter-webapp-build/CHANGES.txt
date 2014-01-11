@@ -8,5 +8,8 @@ Changelog
 - lib/jodconverter-core/src/main/java/org/artofsolving/jodconverter/office/OfficeUtils.java: line 110-116
   replace soffice.bin by soffice
 
+- jodconverter-webapp/src/main/java/org/artofsolving/jodconverter/sample/web/ConverterServlet.java: line 54-57
+  fix createTempFile error - temp file name must be at least 3 in length
+
 - startup.sh: line 21-28
   include PIPE_PATH and sigar path in Java library path
